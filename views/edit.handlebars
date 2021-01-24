@@ -1,12 +1,12 @@
-<h1 class="mb-1 restaurant-show-title">新增餐廳資訊</h1>
+<h1 class="mb-1 restaurant-show-title">編輯餐廳資訊</h1>
 
 <div class="container mx-auto mt-5" style="max-width: 750px;">
 
   <div class="createNewRestaurantForm ">
-    <form class="row g-3 mt-5 mx-5 " action="/restaurants" method="POST">
+    <form class="row g-3 mt-5 mx-5 " action="/restaurants/{{this._id}}/edit" method="POST">
       <div class="col-md-6 mb-3">
         <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="餐廳名稱" name="name">
+        <input type="text" class="form-control" id="name" placeholder="餐廳名稱" name="name" value="{{this.name}}">
       </div>
 
       <div class="form-group col-md-3 ml-2">
@@ -15,42 +15,46 @@
           placeholder="餐廳類型">
       </div>
 
-
       <div class="form-group col-12 mb-3">
         <label for="image" class="form-label">Pictures</label>
-        <input type="text" class="form-control" id="image" placeholder="http://" name="image">
+        <input type="text" class="form-control" id="image" placeholder="http://" name="image" value="{{this.image}}">
       </div>
 
       <div class="form-group col-12 mb-3">
         <label for="address" class="form-label">Address</label>
-        <input type="text" class="form-control" id="address" placeholder="餐廳地址" name="address">
+        <input type="text" class="form-control" id="address" placeholder="餐廳地址" name="address" value="{{this.address}}">
       </div>
 
       <div class="form-group col-12 mb-3">
         <label for="google_map" class="form-label">Google map </label>
-        <input type="text" class="form-control" id="google_map" placeholder="Google map URL" name="google_map">
+        <input type="text" class="form-control" id="google_map" placeholder="Google map URL" name="google_map"
+          value="{{this.google_map}}">
       </div>
 
       <div class="form-group col-md-6 mb-3">
         <label for="phone" class="form-label">Phone</label>
-        <input type="text" class="form-control" id="phone" placeholder="餐廳電話" name="phone">
+        <input type="text" class="form-control" id="phone" placeholder="餐廳電話" name="phone" value="{{this.phone}}">
       </div>
       <div class="form-group col-md-6 mb-3">
         <label for="rating" class="form-label">Rating</label>
-        <input type="string" class="form-control" id="rating" placeholder="餐廳評分：0.1 ~ 5.0" name="rating">
+        <input type="string" class="form-control" id="rating" placeholder="餐廳評分：0.1 ~ 5.0" name="rating"
+          value="{{this.rating}}">
       </div>
       <div class="form-group col-md-12 mb-3">
         <label for="menu" class="form-label">Menu</label>
-        <input type="text" class="form-control" id="menu" placeholder="http://" name="menu">
+        <input type="text" class="form-control" id="menu" placeholder="http://" name="menu" value="{{this.menu}}">
       </div>
 
       <div class=" col-12 form-group mb-3">
         <label for="description">Description</label>
-        <input type="text" a class="form-control" placeholder="餐廳敘述" id="description" name="description"></input>
+        <input type="text" class="form-control" placeholder="餐廳敘述" id="description" name="description"
+          value="{{this.description}}"></input>
       </div>
 
       <div class="form-group col-md-10 justify-content-start" style="margin-top: 10px;">
-        <button type="submit" class="btn btn-info">Submit</button>
+        <a href="/restaurants/{{this._id}}">
+          <button type="submit" class="btn btn-info">Save</button>
+        </a>
         <a href="/">
           <button type="button" class="btn btn-warning ml-3">Back</button>
         </a>
