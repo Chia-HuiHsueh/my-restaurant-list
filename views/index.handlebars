@@ -23,8 +23,8 @@
       <div class="card-columns">
 
         {{#each restaurants}}
-        <a href="/restaurants/{{this.id}}" class="text-secondary">
-          <div class="card mb-3">
+        <a href="/restaurants/{{this._id }}" class="text-secondary">
+          <div class="card mb-5 ">
             <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
             <div class="card-body p-3">
               <h6 class="card-title mb-1">{{this.name}}</h6>
@@ -37,33 +37,28 @@
                 {{this.rating}}
                 <i class="fas fa-star fa-xs"></i>
               </span>
+
             </div>
-          </div>
         </a>
-        {{/each}}
+        <div class="card-footer d-flex justify-content-end">
+          <span class="ml-1">
+            <i class="fas fa-edit  fa-2x"></i>
+          </span>
+          <a href="./restaurants/{{this._id }}">
+            <span class="ml-1">
+              <i class="fas fa-info-circle fa-2x"></i>
+            </span>
+          </a>
+          <span class="ml-1">
+            <i class="fas fa-trash fa-2x"></i>
+          </span>
 
-        {{!-- <a href="./restaurants/new" class="text-secondary">
-          <div class="card mb-3">
-            <img class="card-img-top"
-              src="https://raw.githubusercontent.com/Chia-HuiHsueh/my-restaurant-list/main/images/create.png"
-              alt="點此新增餐廳">
-            <div class="card-body p-3">
-              <h6 class="card-title mb-1">新增你所愛的餐廳</h6>
-
-              <div class="restaurant-category mb-1">
-                <i class="fas fa-utensils pr-2"></i> 超美味料理
-              </div>
-
-              <span class="badge badge-pill badge-danger font-weight-normal">
-                5
-                <i class="fas fa-star fa-xs"></i>
-              </span>
-            </div>
-          </div>
-        </a> --}}
-
-
+        </div>
       </div>
+
+      {{/each}}
     </div>
+
   </div>
+</div>
 </div>

@@ -27,6 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // setting static files
 app.use(express.static('public'))
 
+//顯示所有餐廳到首頁
 app.get('/', (req, res) => {
   Restaurant.find()
     .lean()
@@ -34,14 +35,23 @@ app.get('/', (req, res) => {
     .catch(error => console.error(error))
 
 })
-app.get('/restaurants/new', (req, res) => {
-  return res.render('new')
+app.get('/restaurants/create', (req, res) => {
+  return res.render('create')
 })
 
 app.post('/restaurants', (req, res) => {
-  const name = req.body.name       // 從 req.body 拿出表單裡的 name 資料
-  return Restaurant.create({ name })     // 存入資料庫
-    .then(() => res.redirect('/')) // 新增完成後導回首頁
+  const name = req.body.name
+  return Restaurant.create({ name })
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
+//show restaurant detail
+app.get('/restaurants/:id', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .lean()
+    .then(restaurant => res.render('show', { restaurant }))
     .catch(error => console.log(error))
 })
 
@@ -54,10 +64,7 @@ app.post('/restaurants', (req, res) => {
 //   } else { res.render('index', { restaurants: restaurants, keyword: keyword }) }
 
 // })
-// app.get('/restaurants/:restaurant_id', (req, res) => {
-//   const restaurant = restaurantList.results.find(restaurant => restaurant.id.toString() === req.params.restaurant_id)
-//   res.render('show', { restaurant: restaurant })
-// })
+
 // app.get('/category/:restaurant_category', (req, res) => {
 //   const restaurantCategory = restaurantList.results.filter(restaurant => { return restaurant.category === req.params.restaurant_category })
 //   res.render('index', { restaurants: restaurantCategory })
