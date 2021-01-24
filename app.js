@@ -49,6 +49,7 @@ app.post('/restaurants', (req, res) => {
 //show restaurant detail
 app.get('/restaurants/:id', (req, res) => {
   const id = req.params.id
+
   return Restaurant.findById(id)
     .lean()
     .then(restaurant => res.render('show', { restaurant }))
@@ -65,21 +66,24 @@ app.get('/restaurants/:id/edit', (req, res) => {
 })
 //update restaurant new edit
 app.post('/restaurants/:id/edit', (req, res) => {
+  if (req.body.image.length === 0) { req.body.image = 'https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png' }
+  if (req.body.menu.length === 0) { req.body.menu = 'https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png' }
   const id = req.params.id
   return Restaurant.findById(id)
     .then(restaurant => {
-      restaurant.name = req.body.name
-      restaurant.category = req.body.category
-      restaurant.image = req.body.image
-      restaurant.address = req.body.address
-      restaurant.phone = req.body.phone
-      restaurant.rating = req.body.rating
-      restaurant.google_map = req.body.google_map
-      restaurant.description = req.body.description
-      restaurant.menu = req.body.menu
+      restaurant = Object.assign(restaurant, req.body)
       return restaurant.save()
     })
     .then(() => res.redirect(`/restaurants/${id}`))
+    .catch(error => console.log(error))
+})
+
+//delete restaurant
+app.post('/restaurants/:id/delete', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .then(restaurant => restaurant.remove())
+    .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
 
@@ -93,10 +97,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
 
 // })
 
-// app.get('/category/:restaurant_category', (req, res) => {
-//   const restaurantCategory = restaurantList.results.filter(restaurant => { return restaurant.category === req.params.restaurant_category })
-//   res.render('index', { restaurants: restaurantCategory })
-// })
+
 
 app.listen(port, () => {
   console.log(`Express is listening on localhost:${port}`)

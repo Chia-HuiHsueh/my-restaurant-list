@@ -36,6 +36,9 @@
 
       <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurant.image}}" alt="{{restaurant.name}}"
         style="max-width: 600px;">
+      <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurant.menu}}" alt="{{restaurant.name}}"
+        style="max-width: 600px;">
+
     </div>
     <div class="col-12 col-md-10 mx-auto d-flex justify-content-end"></div>
     <a href="/">
@@ -46,8 +49,12 @@
         <i class="fas fa-edit  fa-2x"></i>
       </span>
     </a>
-    <span class="ml-1">
-      <i class="fas fa-trash fa-2x"></i>
-    </span>
+
+    <form action="/restaurants/{{restaurant._id}}/delete" method="POST">
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+
+
+
   </div>
 </div>
