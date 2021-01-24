@@ -7,8 +7,11 @@
 * 使用者可以點擊地址後 icon 進入店家於 google map 上的位置。
 * 使用者可以點擊左上方台北美食地圖回到首頁。
 * 使用者可於首頁搜尋列輸入關鍵字搜尋符合關鍵字描述的餐廳。
-* 使用者輸入搜尋關鍵字，若無搜尋結果則跳出提示。
 * 使用者可以使用美食類別查詢餐廳。
+* 使用者可以新增餐廳資料。
+* 使用者可以修改餐廳資料。
+* 使用者可以刪除餐廳資料。
+
 
 
 ## Installing - 專案安裝流程
@@ -28,13 +31,29 @@ cd restaurant-list
 ```
 輸入 npm i express指令
 ```
-5.安裝 nodemon 套件
+
+5. 安裝 express-handlebars
 ```
-輸入 nodemon app.js 指令
+輸入npm install express-handlebars 指令
 ```
+
+6.安裝 body-parser
+```
+輸入npm install body-parser 指令
+```
+
+7.安裝 mongoose
+```
+輸入npm install mongoose 指令
+```
+8.新增種子資料
+```
+輸入npm run seed 指令
+```
+
 6.啟動伺服器，執行 app.js 檔案
 ```
-輸入nodemon app.js指令
+輸入npm run dev指令
 於任一瀏覽器輸入 http://localhost:3000 
 ```
 
