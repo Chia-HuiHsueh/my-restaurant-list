@@ -1,8 +1,7 @@
 <h1 class="mb-1 restaurant-show-title">{{restaurant.name}}</h1>
-<div class="container">
+<div class=" restaurant-show container py-5 mb-5">
   <div class="row">
     <div class="col-12 col-md-10 mx-auto">
-
       <p class="mb-1">
         <span class="text-secondary">
           <i class="fas fa-utensils pr-2"></i>
@@ -40,19 +39,22 @@
         style="max-width: 600px;">
 
     </div>
-    <div class="col-12 col-md-10 mx-auto d-flex justify-content-end"></div>
-    <a href="/">
-      <button type="button" class="btn btn-warning ml-3">Back</button>
-    </a>
-    <a href="/restaurants/{{restaurant._id }}/edit">
-      <span class="ml-1">
-        <i class="fas fa-edit  fa-2x"></i>
-      </span>
-    </a>
+    <div class="col-12 col-md-10 mx-auto d-flex justify-content-end " style="max-width: 600px;">
+      <a href="/">
+        <span class="mx-2">
+          <button type="button" class="btn btn-secondary ">Back</button>
+        </span>
+      </a>
 
-    <form action="/restaurants/{{restaurant._id}}/delete" method="POST">
-      <button type="submit" class="btn btn-danger">Delete</button>
-    </form>
+      <form action="/restaurants/{{restaurant._id}}/edit" method="GET">
+        <button type="submit" class="btn btn-primary mx-2">Edit</button>
+      </form>
+
+
+      <form action="/restaurants/{{restaurant._id}}/delete" method="POST">
+        <button type="submit" class="btn btn-danger ml-2">Delete</button>
+      </form>
+    </div>
 
 
 

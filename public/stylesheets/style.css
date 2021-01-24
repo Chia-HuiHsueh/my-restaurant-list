@@ -1,13 +1,18 @@
 head {
   overflow: hidden;
 }
-
+body{
+  background-color: #EEEEEE;
+}
 .navbar .navbar-brand {
   color: #4592af;
 }
 
 .navbar .navbar-brand:hover {
   color: #226089;
+}
+a {
+    text-decoration:none;
 }
 
 .banner {
@@ -77,6 +82,17 @@ head {
   font-size: 3rem;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+.restaurant-show {
+background-color: #FBF3DE;
+font: 1.5em sans-serif;
+color:#402C2B;
+}
+.restaurant-create,.restaurant-edit  {
+background-color:#BBD0D9;
+font: 1em sans-serif;
+color:#402C2B;
+}
+
 
 @media screen and (max-width: 992px) {
   

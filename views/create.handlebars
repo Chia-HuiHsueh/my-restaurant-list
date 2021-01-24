@@ -1,12 +1,12 @@
 <h1 class="mb-1 restaurant-show-title">新增餐廳資訊</h1>
 
-<div class="container mx-auto mt-5" style="max-width: 750px;">
+<div class="restaurant-create container mx-auto mt-2 py-5 mb-5" style="max-width: 750px;">
 
   <div class="createNewRestaurantForm ">
-    <form class="row g-3 mt-5 mx-5 " action="/restaurants" method="POST">
+    <form class="row g-3 mt-2 mx-5 " action="/restaurants" method="POST">
       <div class="col-md-6 mb-3">
         <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="餐廳名稱" name="name">
+        <input type="text" class="form-control" id="name" placeholder="餐廳名稱" name="name" required>
       </div>
 
       <div class="form-group col-md-3 ml-2">
@@ -52,7 +52,7 @@
       <div class="form-group col-md-10 justify-content-start" style="margin-top: 10px;">
         <button type="submit" class="btn btn-info">Submit</button>
         <a href="/">
-          <button type="button" class="btn btn-warning ml-3">Back</button>
+          <button type="button" class="btn  btn-light ml-3">Back</button>
         </a>
       </div>
     </form>

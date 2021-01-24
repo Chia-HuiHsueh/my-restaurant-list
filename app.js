@@ -66,8 +66,8 @@ app.get('/restaurants/:id/edit', (req, res) => {
 })
 //update restaurant new edit
 app.post('/restaurants/:id/edit', (req, res) => {
-  if (req.body.image.length === 0) { req.body.image = 'https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png' }
-  if (req.body.menu.length === 0) { req.body.menu = 'https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png' }
+  if (req.body.image.length === 0) { req.body.image = "https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png" }
+  if (req.body.menu.length === 0) { req.body.menu = "https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png" }
   const id = req.params.id
   return Restaurant.findById(id)
     .then(restaurant => {
@@ -87,15 +87,18 @@ app.post('/restaurants/:id/delete', (req, res) => {
     .catch(error => console.log(error))
 })
 
-// app.get('/search', (req, res) => {
-//   const keyword = req.query.keyword
-//   const restaurants = restaurantList.results.filter(restaurant => { return restaurant.name.toLocaleLowerCase().includes(keyword.toLocaleLowerCase()) })
-
-//   if (restaurants.length === 0) {
-//     res.render('error', { keyword: keyword })
-//   } else { res.render('index', { restaurants: restaurants, keyword: keyword }) }
-
-// })
+//set search bar
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword
+  return Restaurant.find({
+    "$or":
+      [{
+        "name": { $regex: `${keyword}`, $options: '$i' }
+      }]
+  }).lean()
+    .then(restaurants => res.render('index', { restaurants, keyword }))
+    .catch(error => console.log(error))
+})
 
 
 
