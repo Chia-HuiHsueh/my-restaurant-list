@@ -66,8 +66,6 @@ app.get('/restaurants/:id/edit', (req, res) => {
 })
 //update restaurant new edit
 app.post('/restaurants/:id/edit', (req, res) => {
-  if (req.body.image.length === 0) { req.body.image = "https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png" }
-  if (req.body.menu.length === 0) { req.body.menu = "https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png" }
   const id = req.params.id
   return Restaurant.findById(id)
     .then(restaurant => {
