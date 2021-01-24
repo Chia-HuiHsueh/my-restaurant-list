@@ -51,7 +51,7 @@ cd restaurant-list
 輸入npm run seed 指令
 ```
 
-6.啟動伺服器，執行 app.js 檔案
+9.啟動伺服器，執行 app.js 檔案
 ```
 輸入npm run dev指令
 於任一瀏覽器輸入 http://localhost:3000 
