@@ -39,10 +39,11 @@ app.get('/restaurants/create', (req, res) => {
 })
 
 //create new restaurant
-app.post('/restaurants/', (req, res) => {
+app.post('/restaurants/create/new', (req, res) => {
   if (req.body.image.length === 0) { req.body.image = 'https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png' }
-  const newRestaurant = req.body
-  return Restaurant.create({ newRestaurant })
+  if (req.body.menu.length === 0) { req.body.menu = 'https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png' }
+  const restaurant = req.body
+  return Restaurant.create(restaurant)
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
@@ -50,7 +51,6 @@ app.post('/restaurants/', (req, res) => {
 //show restaurant detail
 app.get('/restaurants/:id', (req, res) => {
   const id = req.params.id
-
   return Restaurant.findById(id)
     .lean()
     .then(restaurant => res.render('show', { restaurant }))
@@ -69,7 +69,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
 app.post('/restaurants/:id/edit', (req, res) => {
   const id = req.params.id
   if (req.body.image.length === 0) { req.body.image = 'https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png' }
-  if (req.body.menu.length === 0) { req.body.image = 'https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png' }
+  if (req.body.menu.length === 0) { req.body.menu = 'https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png' }
   return Restaurant.findById(id)
     .then(restaurant => {
       restaurant = Object.assign(restaurant, req.body)
