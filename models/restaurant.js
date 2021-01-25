@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 const restaurantSchema = new Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   category: {
     type: String,
@@ -21,7 +21,7 @@ const restaurantSchema = new Schema({
     type: String,
   },
   rating: {
-    type: String,
+    type: Number,
   },
   description: {
     type: String,

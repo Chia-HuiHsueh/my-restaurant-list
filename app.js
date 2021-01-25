@@ -39,9 +39,10 @@ app.get('/restaurants/create', (req, res) => {
 })
 
 //create new restaurant
-app.post('/restaurants', (req, res) => {
-  const name = req.body.name
-  return Restaurant.create({ name })
+app.post('/restaurants/', (req, res) => {
+  if (req.body.image.length === 0) { req.body.image = 'https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png' }
+  const newRestaurant = req.body
+  return Restaurant.create({ newRestaurant })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
@@ -67,6 +68,8 @@ app.get('/restaurants/:id/edit', (req, res) => {
 //update restaurant new edit
 app.post('/restaurants/:id/edit', (req, res) => {
   const id = req.params.id
+  if (req.body.image.length === 0) { req.body.image = 'https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png' }
+  if (req.body.menu.length === 0) { req.body.image = 'https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png' }
   return Restaurant.findById(id)
     .then(restaurant => {
       restaurant = Object.assign(restaurant, req.body)
