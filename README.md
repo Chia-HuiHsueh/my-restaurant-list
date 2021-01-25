@@ -16,7 +16,7 @@
 ## Installing - 專案安裝流程
 1.開啟終端機(Terminal)，Clone 此專案至本機電腦。
 ```
-git clone https://github.com/Chia-HuiHsueh/restaurant-list.git
+git clone https://github.com/Chia-HuiHsueh/my-restaurant-list
 ```
 2.CD 進入存放此專案的資料夾
 ```
@@ -26,31 +26,11 @@ cd restaurant-list
 ```
 輸入 npm install 指令
 ```
-4.安裝 Express 套件
-```
-輸入 npm i express指令
-```
-
-5. 安裝 express-handlebars
-```
-輸入npm install express-handlebars 指令
-```
-
-6.安裝 body-parser
-```
-輸入npm install body-parser 指令
-```
-
-7.安裝 mongoose
-```
-輸入npm install mongoose 指令
-```
-8.新增種子資料
+4.新增種子資料
 ```
 輸入npm run seed 指令
 ```
-
-9.啟動伺服器，執行 app.js 檔案
+5.啟動伺服器，執行 app.js 檔案
 ```
 輸入npm run dev指令
 於任一瀏覽器輸入 http://localhost:3000 
