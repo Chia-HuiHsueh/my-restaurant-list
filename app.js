@@ -4,6 +4,8 @@ const port = 3000
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
+
 const Restaurant = require('./models/restaurant')
 
 mongoose.connect('mongodb://localhost/restaurant', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -26,6 +28,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // setting static files
 app.use(express.static('public'))
+
+app.use(methodOverride('_method'))
 
 //顯示所有餐廳到首頁
 app.get('/', (req, res) => {
@@ -66,7 +70,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 //update restaurant new edit
-app.post('/restaurants/:id/edit', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   const id = req.params.id
   if (req.body.image.length === 0) { req.body.image = 'https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png' }
   if (req.body.menu.length === 0) { req.body.menu = 'https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png' }
@@ -80,7 +84,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
 })
 
 //delete restaurant
-app.post('/restaurants/:id/delete', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .then(restaurant => restaurant.remove())
