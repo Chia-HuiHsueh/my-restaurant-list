@@ -1,4 +1,5 @@
 <h1 class="mb-1 restaurant-show-title">{{restaurant.name}}</h1>
+
 <div class=" restaurant-show container py-5 mb-5">
   <div class="row">
     <div class="col-12 col-md-10 mx-auto">
@@ -58,13 +59,13 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">警告</h5>
+            <h5 class="modal-title" id="exampleModalLabel">NOTICE</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            確定要刪除這間餐廳？
+            確定要刪除【{{restaurant.name}}】這間餐廳？
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -75,7 +76,5 @@
         </div>
       </div>
     </div>
-
-
   </div>
 </div>
