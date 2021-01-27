@@ -3,28 +3,28 @@ const router = express.Router()
 
 const Restaurant = require('../../models/restaurant')
 
-router.get('/name/AtoZ', (req, res) => {
+router.get('/name/asc', (req, res) => {
   Restaurant.find()
     .lean()
     .sort({ name: 'asc' })
     .then(restaurants => res.render('index', { restaurants }))
     .catch(error => console.error(error))
 })
-router.get('/name/ZtoA', (req, res) => {
+router.get('/name/desc', (req, res) => {
   Restaurant.find()
     .lean()
     .sort({ name: 'desc' })
     .then(restaurants => res.render('index', { restaurants }))
     .catch(error => console.error(error))
 })
-router.get('/category/AtoZ', (req, res) => {
+router.get('/category/asc', (req, res) => {
   Restaurant.find()
     .lean()
     .sort({ category: 'asc' })
     .then(restaurants => res.render('index', { restaurants }))
     .catch(error => console.error(error))
 })
-router.get('/category/ZtoA', (req, res) => {
+router.get('/category/desc', (req, res) => {
   Restaurant.find()
     .lean()
     .sort({ category: 'desc' })
@@ -45,7 +45,6 @@ router.get('/rating/descending', (req, res) => {
     .then(restaurants => res.render('index', { restaurants }))
     .catch(error => console.error(error))
 })
-
 
 
 module.exports = router
