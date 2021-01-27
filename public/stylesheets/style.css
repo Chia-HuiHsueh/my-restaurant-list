@@ -1,18 +1,30 @@
+font-family: 'Noto Sans TC', sans-serif;
+font-family: 'Lato', sans-serif;
+
+html, body {
+  font-family: 'Lato', 'Noto Sans TC', sans-serif;
+}
+button{font: 'Lato', 'Noto Sans TC', sans-serif;}
+
 head {
   overflow: hidden;
 }
 body{
-  background-color: #EEEEEE;
+  background-color: #f7f7f7;
 }
 .navbar .navbar-brand {
-  color: #4592af;
+  color:#4592AF;
 }
 
 .navbar .navbar-brand:hover {
-  color: #226089;
+  color: #498074;
+}
+.create-button {
+ background-color: #498074;
+ color:#f7f7f7;
 }
 a {
-    text-decoration:none;
+  text-decoration:none;
 }
 
 .banner {
@@ -25,29 +37,30 @@ a {
   filter: blur(3px);
 }
 
-.search-bar .search-bar-outer {
-  margin: 0 auto;
-  max-width: 680px;
-  background-color: #fce2cf;
-  border-radius: 8px;
-  padding: 20px 30px;
+.search-bar-inner  {
+  margin: 0 ;
+  width: 380px;
   border: 0;
-  margin-top: -60px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 5%;
 }
-
-.search-bar .search-bar-inner h4 {
-  color: #9b4b4b;
+.dropdown-toggle{
+  background-color:#498074;
+  margin: 0 ;
+ color:#f7f7f7;
+ margin-top: 20px;
+ height: 65%;
 }
 
 .form-control::placeholder {
   color: #aaaaaa;
   font-size: 0.8rem;
+  border-radius: 5px;
 }
 
 .btn-major {
-  background-color: #9b4b4b;
-  color: white;
+  background-color:#498074;
+  color: #f7f7f7;
+  border-radius: 5px;
 }
 
 .form-control:focus {
@@ -67,35 +80,45 @@ a {
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
+  color: #4592AF;
+}
+.card-footer{
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.delete-button{
+  background-color: #E59CAD;
+  color: #f7f7f7;
 }
 
 .restaurant-category {
-  color: #666666;
+  color: #B6DBC1;
   font-size: 0.8rem;
 }
 
 .restaurant-show-title {
   position: relative;
   top: -100px;
-  color: white;
+  color: #FBF3DE;
   text-align: center;
   font-size: 3rem;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .restaurant-show {
 background-color: #FBF3DE;
-font: 1.5em sans-serif;
+font: 18px Noto Sans TC;
 color:#402C2B;
+border-radius: 5%;
 }
 .restaurant-create,.restaurant-edit  {
 background-color:#BBD0D9;
-font: 1em sans-serif;
+font: 1em Lato;
 color:#402C2B;
+border-radius: 5%;
 }
 
 
 @media screen and (max-width: 992px) {
-  
   .card img{
     height: 115px;
   }
@@ -117,17 +140,14 @@ color:#402C2B;
 }
 
 @media screen and (max-width: 575px) {
-  
   .card img{
     height: auto;
   }
-  
 }
 
 .card:hover {
   transform: scale(1.05);
   box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.2);
   position: relative;
-  
 }
 

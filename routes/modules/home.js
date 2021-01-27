@@ -13,12 +13,14 @@ router.get('/', (req, res) => {
 //set search bar
 router.get('/search', (req, res) => {
   const keyword = req.query.keyword
-  return Restaurant.find({
-    "$or":
-      [{
-        "name": { $regex: `${keyword}`, $options: '$i' }
-      }]
-  }).lean()
+  Restaurant.find()
+    .lean()
+    .then(restaurants => {
+      return restaurants.filter(restaurant =>
+        restaurant.name.toLowerCase().includes(keyword)
+        || restaurant.category.toLowerCase().includes(keyword)
+      )
+    })
     .then(restaurants => res.render('index', { restaurants, keyword }))
     .catch(error => console.log(error))
 })

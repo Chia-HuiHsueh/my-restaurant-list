@@ -1,6 +1,6 @@
 <h1 class="mb-1 restaurant-show-title">{{restaurant.name}}</h1>
 
-<div class=" restaurant-show container py-5 mb-5">
+<div class=" restaurant-show container p-5  mb-5">
   <div class="row">
     <div class="col-12 col-md-10 mx-auto">
       <p class="mb-1">
@@ -48,9 +48,10 @@
       </a>
 
       <form action="/restaurants/{{restaurant._id}}/edit" method="GET">
-        <button type="submit" class="btn btn-primary mx-2">Edit</button>
+        <button type="submit" class="btn mx-2" style="background: #4592AF;color:#FBF3DE;">Edit</button>
       </form>
-      <button type="button" class="btn btn-danger ml-2" data-toggle="modal" data-target="#deleteModal">Delete</button>
+      <button type="button" class="btn  ml-2  delete-button" data-toggle="modal"
+        data-target="#deleteModal">Delete</button>
 
     </div>
     <!-- Modal -->
@@ -59,21 +60,21 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel" style="color: crimson;">NOTICE</h5>
+            <h5 class="modal-title" id="exampleModalLabel" style="color: #E59CAD;">NOTICE</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             確定要刪除
-            <span style="color:rgb(16, 16, 202);font-weight:bold;">
+            <span style="color:#4592AF;font-weight:bold;">
               {{restaurant.name}}
             </span>這間餐廳？
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
             <form action="/restaurants/{{restaurant._id}}?_method=DELETE" method="POST">
-              <button type="submit" class="btn btn-primary">Delete</button>
+              <button type="submit" class="btn " style="background-color: #E59CAD;color: #f7f7f7;" ;>Delete</button>
             </form>
           </div>
         </div>
