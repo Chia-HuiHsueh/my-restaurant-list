@@ -15,6 +15,7 @@ router.post('/login', passport.authenticate('local', {
 router.get('/register', (req, res) => {
   res.render('register')
 })
+
 router.post('/register', (req, res) => {
   const { name, email, password, confirmPassword } = req.body
   User.findOne({ email }).then(user => {
@@ -36,6 +37,11 @@ router.post('/register', (req, res) => {
         .catch(err => console.log(err))
     }
   })
+})
+
+router.get('/logout', (req, res) => {
+  req.logout()
+  res.redirect('/users/login')
 })
 
 module.exports = router
