@@ -14,17 +14,19 @@
       <a class="navbar-brand" href="/">
         <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png"
           width="30" height="30" class="d-inline-block align-top" alt=" 台北美食地圖">
+        {{#if isAuthenticated}}{{user.name}}'s {{/if}}
         台北美食地圖
       </a>
-      <a href="/restaurants/create">
-        <button type="button" class="btn  ml-3 create-button">新增餐廳</button>
-      </a>
+      {{#if isAuthenticated}}
+      <a href="/users/logout" class="btn btn-info">Logout</a>
+      {{else}}
+      <a href="/users/login" class="btn btn-info">Login</a>
+      {{/if}}
+
   </nav>
 
   <!-- cover pictures -->
   <div class="banner"></div>
-
-
 
   <!-- include bootstrap stylesheets -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"

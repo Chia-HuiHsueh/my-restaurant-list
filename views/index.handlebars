@@ -1,6 +1,6 @@
-<div class="container d-flex justify-content-between mx-auto ">
+<div class="container d-flex justify-content-between mx-auto">
   <!-- search bar -->
-  <div class=" container-inline search-bar mt-5" style="min-width: 150px;">
+  <div class="container-inline search-bar mt-5" style="min-width: 150px;">
     <div class="search-bar-inner">
       <form action="/search">
         <div class="input-group">
@@ -14,11 +14,12 @@
       </form>
     </div>
   </div>
-
+  <a href="/restaurants/create">
+    <button type="button" class="btn create-button  mt-5">新增餐廳</button>
+  </a>
   <div class="btn-group  mt-5">
     <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-      aria-expanded="false">餐廳排序
-    </button>
+      aria-expanded="false">餐廳排序</button>
     <div class="dropdown-menu">
       <a class="dropdown-item" href="/sorts/name/asc">名稱正序：A->Z</a>
       <div class="dropdown-divider"></div>
@@ -33,7 +34,10 @@
       <a class="dropdown-item" href="/sorts/rating/descending">評分高至低: 5.0-> 0.1 </a>
     </div>
   </div>
+
 </div>
+
+
 
 
 <!-- restaurant list -->
