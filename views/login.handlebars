@@ -1,1 +1,21 @@
-<h1>login</h1>
+<div class="row my-5">
+  <div class="col-md-6 col-lg-3 m-auto " style="width:420px">
+    <div class="card card-body">
+      <h2 class="text-center mt-3">會員登入</h2>
+      <form action="/users/login" method="POST">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password">
+        </div>
+        <button type="submit" class="btn btn-info btn-block">登入</button>
+      </form>
+      <p class="lead mt-4">
+        還不是會員？ <a href="/users/register">註冊</a>
+      </p>
+    </div>
+  </div>
+</div>
