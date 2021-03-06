@@ -31,8 +31,8 @@ a {
   position: relative;
   z-index: -1;
   margin: -5px;
-  height: 360px;
-  background: #dddddd center center url('https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
+  height: 450px;
+  background: #dddddd top url('https://images.pexels.com/photos/1426711/pexels-photo-1426711.jpeg?cs=srgb&dl=pexels-julie-aagaard-1426711.jpg&fm=jpg');
   background-size: cover;
   filter: blur(3px);
 }
