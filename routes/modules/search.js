@@ -5,7 +5,8 @@ const Restaurant = require('../../models/restaurant')
 //set search bar
 router.get('/search', (req, res) => {
   const keyword = req.query.keyword
-  Restaurant.find()
+  const userId = req.user._id
+  Restaurant.find(userId)
     .lean()
     .then(restaurants => {
       return restaurants.filter(restaurant =>
