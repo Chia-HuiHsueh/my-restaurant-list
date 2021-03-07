@@ -2,23 +2,24 @@
   <div class="col-md-6 col-lg-3 m-auto ">
     <div class="card card-body">
       <h2 class="text-center mt-3">註冊會員</h2>
+      {{> message}}
       <form action="/users/register" method="POST">
         <div class="form-group">
           <label for="name">會員姓名</label>
           <input type="text" id="name" name="name" class="form-control" placeholder="Enter Name" value="{{ name }}">
         </div>
         <div class="form-group">
-          <label for="email">會員信箱</label>
+          <label for="email">會員信箱<small class="text-muted form-text">*為必填欄位</small></label>
           <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email"
             value="{{ email }}">
         </div>
         <div class="form-group">
-          <label for="password">密碼</label>
+          <label for="password">密碼<small class="text-muted form-text">*為必填欄位</small></label>
           <input type="password" id="password" name="password" class="form-control" placeholder="Enter Password"
-            value="{{ password}}">
+            value="{{password}}">
         </div>
         <div class="form-group">
-          <label for="confirmPassword">確認密碼</label>
+          <label for="confirmPassword">確認密碼<small class="text-muted form-text">*為必填欄位</small></label>
           <input type="password" id="confirmPassword" name="confirmPassword" class="form-control"
             placeholder="Confirm Password" value="{{confirmPassword}}">
         </div>
