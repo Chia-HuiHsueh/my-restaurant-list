@@ -17,28 +17,22 @@
   <a href="/restaurants/create">
     <button type="button" class="btn create-button  mt-5">新增餐廳</button>
   </a>
-  <div class="btn-group  mt-5">
-    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-      aria-expanded="false">餐廳排序</button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="/sorts/name/asc">名稱正序：A->Z</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="/sorts/name/desc">名稱反序：Z->A</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="/sorts/category/asc">類別正序：A->Z</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="/sorts/category/desc">類別反序：Z->A</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="/sorts/rating/ascending">評分低至高: 0.1-> 5.0 </a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="/sorts/rating/descending">評分高至低: 5.0-> 0.1 </a>
-    </div>
+
+  <div class="mb-3 mr-3" style="width: 7vw;">
+    <form action="/sorts" method="GET">
+      <select name="sorts" class="form-control btn-outline-info" id='inputType' onchange="this.form.submit()"
+        style="cursor: pointer; text-align: center; text-align-last: center">
+        <option value="" disabled selected>排序方式</option>
+        <option value="name">名稱 A -> Z</option>
+        <option value="-name">名稱 Z -> A</option>
+        <option value="category">類別 A -> Z</option>
+        <option value="-category">類別 Z -> A</option>
+        <option value="-rating">評比高至低</option>
+        <option value="rating">評比低至高</option>
+      </select>
+    </form>
   </div>
-
 </div>
-
-
-
 
 <!-- restaurant list -->
 <div class="container mt-5">
