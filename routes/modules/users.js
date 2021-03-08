@@ -28,39 +28,35 @@ router.post('/register', (req, res) => {
   if (password !== confirmPassword) {
     errors.push({ message: '密碼與確認密碼不相符！' })
   }
-  if (errors.length) {
-    return res.render('register', {
-      errors,
-      name,
-      email,
-      password,
-      confirmPassword
-    })
-  }
 
   User.findOne({ email }).then(user => {
     if (user) {
       errors.push({ message: '此會員信箱已註冊！' })
-      res.render('register', {
+    }
+    if (errors.length) {
+      return res.render('register', {
+        errors,
         name,
         email,
         password,
         confirmPassword
       })
     }
-    return bcrypt
+    bcrypt
       .genSalt(10)
       .then(salt => bcrypt.hash(password, salt))
-      .then(hash => User.create({
-        name,
+      .then(hash => {
+        User.create({
+          name,
+          email,
+          password: hash
+        })
+      })
+      .then(() => res.render('login', {
         email,
-        password: hash
+        registration_success_msg
       }))
   })
-    .then(() => res.render('login', {
-      email,
-      registration_success_msg
-    }))
     .catch(err => console.log(err))
 })
 
