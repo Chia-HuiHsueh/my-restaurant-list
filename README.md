@@ -1,22 +1,25 @@
 # 台北美食地圖
-此專案提供使用者查詢台北各類型餐廳的資訊，例如：地址、電話、評分、敘述...等。
+此專案提供使用者登入建立屬於自己的台北美食口袋名單。
 ## Features - 功能描述
-* 使用者可以瀏覽全部所有餐廳。
-* 使用者可於首頁瀏覽餐廳名稱、類別、評分、照片。
-* 使用者可以瀏覽一家餐廳的詳細資訊，包括：餐廳地址、電話、敘述。
-* 使用者可以點擊地址後 icon 進入店家於 google map 上的位置。
-* 使用者可以點擊左上方台北美食地圖回到首頁。
+* 使用者可以註冊帳號。
+* 使用者可以登入。
+* 使用者可以透過 FACEBOOK 登入。
+* 使用者登出、註冊失敗、或登入失敗時，使用者都會在畫面上看到正確而清楚的系統訊息
+* 登入後，使用者可以建立並管理專屬的一個餐廳清單。
+* 使用者可以新增一家餐廳
+* 使用者可以瀏覽一家餐廳的詳細資訊
+* 使用者可以瀏覽全部所有餐廳
+* 使用者可以修改一家餐廳的資訊
+* 使用者可以刪除一家餐廳
 * 使用者可於首頁搜尋列輸入關鍵字搜尋符合關鍵字描述的餐廳。
-* 使用者可以新增餐廳資料。
-* 使用者可以修改餐廳資料。
-* 使用者可以刪除餐廳資料。
+* 使用者可以選擇餐廳排序的方式。
 
-
+## Features - 專案畫面
 
 ## Installing - 專案安裝流程
 1.開啟終端機(Terminal)，Clone 此專案至本機電腦。
 ```
-git clone https://github.com/Chia-HuiHsueh/my-restaurant-list
+git clone https://github.com/wintersprouter/my-restaurant-list
 ```
 2.CD 進入存放此專案的資料夾
 ```
@@ -37,7 +40,17 @@ cd restaurant-list
 ```
 
 ## Environment SetUp - 環境建置
-* Visual Studio Code - 開發環境
-* Node.js - JavaScript 執行環境
-* Express - 應用程式架構
-* Express-Handlebars - 模板引擎
+* Visual Studio Code 
+* Node.js 
+* bcryptjs: ^2.4.3
+* body-parser: ^1.19.0
+* connect-flash: ^0.1.1
+* dotenv": ^8.2.0
+* express": ^4.17.1
+* express-handlebars: ^5.2.0
+* express-session: ^1.17.1
+* method-override: ^3.0.0
+* mongoose: ^5.11.13
+* passport: ^0.4.1
+* passport-facebook: ^3.0.0
+* passport-local: ^1.0.0
