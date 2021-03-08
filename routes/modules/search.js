@@ -20,7 +20,7 @@ router.get('/search', (req, res) => {
       }
       return res.render('index', { restaurants, keyword })
     })
-    .catch(error => console.log(error))
+    .catch(() => { res.sendStatus(404) })
 })
 
 module.exports = router

@@ -15,7 +15,7 @@ router.post('/', (req, res) => {
   if (req.body.menu.length === 0) { req.body.menu = 'https://www.teknozeka.com/wp-content/uploads/2020/03/wp-header-logo-33.png' }
   return Restaurant.create(restaurantObj)
     .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
+    .catch(() => { res.sendStatus(404) })
 })
 
 //show restaurant detail
@@ -25,7 +25,7 @@ router.get('/:id', (req, res) => {
   return Restaurant.findOne({ _id, userId })
     .lean()
     .then(restaurant => res.render('show', { restaurant }))
-    .catch(error => console.log(error))
+    .catch(() => { res.sendStatus(404) })
 })
 
 //restaurant detail edit page
@@ -35,7 +35,7 @@ router.get('/:id/edit', (req, res) => {
   return Restaurant.findOne({ _id, userId })
     .lean()
     .then(restaurant => res.render('edit', restaurant))
-    .catch(error => console.log(error))
+    .catch(() => { res.sendStatus(404) })
 })
 //update restaurant new edit
 router.put('/:id', (req, res) => {
@@ -49,7 +49,7 @@ router.put('/:id', (req, res) => {
       return restaurant.save()
     })
     .then(() => res.redirect(`/restaurants/${_id}`))
-    .catch(error => console.log(error))
+    .catch(() => { res.sendStatus(404) })
 })
 
 //delete restaurant
@@ -59,7 +59,7 @@ router.delete('/:id', (req, res) => {
   return Restaurant.findOne({ _id, userId })
     .then(restaurant => restaurant.remove())
     .then(() => res.redirect('/'))
-    .catch(error => console.log(error))
+    .catch(() => { res.sendStatus(404) })
 })
 
 

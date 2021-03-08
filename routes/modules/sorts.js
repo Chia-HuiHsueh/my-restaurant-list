@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
     .lean()
     .sort(sorts)
     .then(restaurants => res.render('index', { restaurants, sorts, currentSelected }))
-    .catch(error => console.log(error))
+    .catch(() => { res.sendStatus(404) })
 })
 
 module.exports = router

@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
   Restaurant.find({ userId })
     .lean()
     .then(restaurants => res.render('index', { restaurants }))
-    .catch(error => console.log(error))
+    .catch(() => { res.sendStatus(404) })
 })
 
 
