@@ -1,36 +1,45 @@
-<div class="container d-flex justify-content-between mx-auto">
-  <!-- search bar -->
-  <div class="container-inline search-bar mt-5" style="min-width: 150px;">
-    <div class="search-bar-inner">
-      <form action="/search">
-        <div class="input-group">
-          <input value="{{keyword}}" type=" text" name="keyword" class="form-control" placeholder="輸入餐廳、分類"
-            aria-label="Restaurant Name..." value="" aria-describedby="search-button" required>
-          <div class="input-group-append">
-            <button class="btn btn-major" type="submit" id="search-button"><span class="mx-2">尋找餐廳</span><i
-                class="fas fa-search"></i></button>
+<div class="container mt-2" style=" max-width:890px;">
+  <div class=" row d-flex justify-content-between">
+    <!-- search bar -->
+    <div class="col-8 mb-3 ml-4">
+      <div class="search-bar-inner">
+        <form action="/search">
+          <div class="input-group mt-5">
+            <input value="{{keyword}}" type=" text" name="keyword" class="form-control" placeholder="輸入餐廳、分類"
+              aria-label="Restaurant Name..." value="" aria-describedby="search-button" required>
+            <div class="input-group-append">
+              <button class="btn btn-info" type="submit" id="search-button"><span class="mx-2">尋找餐廳</span><i
+                  class="fas fa-search"></i></button>
+            </div>
           </div>
-        </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- sort -->
+    <div class=" mt-5 ml-2">
+      <form action="/sorts" method="GET">
+        <select name="sorts" class="form-control btn-info" id='inputType' onchange="this.form.submit()"
+          style="cursor: pointer; text-align: center; text-align-last: center">
+          {{#if currentSelected}}<option value="{{sorts}}" selected>{{ currentSelected}}</option>{{else}}
+          <option value="" disabled selected>排序方式</option>
+          {{/if }}
+          <option value="name">名稱 A -> Z</option>
+          <option value="-name">名稱 Z -> A</option>
+          <option value="category">類別 A -> Z</option>
+          <option value="-category">類別 Z -> A</option>
+          <option value="-rating">評比高至低</option>
+          <option value="rating">評比低至高</option>
+        </select>
       </form>
     </div>
-  </div>
-  <a href="/restaurants/create">
-    <button type="button" class="btn create-button  mt-5">新增餐廳</button>
-  </a>
+    <!-- create restaurant -->
+    <a href="/restaurants/create">
+      <div class="input-group mt-5 ">
+        <button type="button" class="btn btn-info">新增餐廳</button>
+      </div>
+    </a>
 
-  <div class="mb-3 mr-3" style="width: 7vw;">
-    <form action="/sorts" method="GET">
-      <select name="sorts" class="form-control btn-outline-info" id='inputType' onchange="this.form.submit()"
-        style="cursor: pointer; text-align: center; text-align-last: center">
-        <option value="" disabled selected>排序方式</option>
-        <option value="name">名稱 A -> Z</option>
-        <option value="-name">名稱 Z -> A</option>
-        <option value="category">類別 A -> Z</option>
-        <option value="-category">類別 Z -> A</option>
-        <option value="-rating">評比高至低</option>
-        <option value="rating">評比低至高</option>
-      </select>
-    </form>
   </div>
 </div>
 

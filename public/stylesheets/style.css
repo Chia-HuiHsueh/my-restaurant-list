@@ -23,15 +23,16 @@ body{
  background-color: #498074;
  color:#f7f7f7;
 }
+
 a {
   text-decoration:none;
 }
 
 .banner {
-  position: relative;
+ position: relative;
   z-index: -1;
   margin: -5px;
-  height: 450px;
+  height: 360px;
   background: #dddddd top url('https://images.pexels.com/photos/1426711/pexels-photo-1426711.jpeg?cs=srgb&dl=pexels-julie-aagaard-1426711.jpg&fm=jpg');
   background-size: cover;
   filter: blur(3px);
@@ -39,7 +40,7 @@ a {
 
 .search-bar-inner  {
   margin: 0 ;
-  width: 380px;
+  min-width: 380px;
   border: 0;
   margin-top: 5%;
 }
